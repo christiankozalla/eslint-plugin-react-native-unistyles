@@ -1,4 +1,6 @@
-# ESLint plugin for React Native
+# Fork of ESLint plugin for React Native
+
+This is a fork of [ESLint plugin for React Native](https://github.com/Intellicode/eslint-plugin-react-native) created to support the usage of Unistyles v3 StyleSheets.
 
 # Project update
 

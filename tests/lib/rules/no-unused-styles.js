@@ -215,6 +215,43 @@ const tests = {
         }
       });
     `,
+  }, {
+    code: `
+      const styles = StyleSheet.create(() => ({
+        name: {}
+      }));
+      const Hello = React.createClass({
+        render: function() {
+          return <Text style={styles.name}>Hello {this.props.name}</Text>;
+        }
+      });
+    `,
+  }, {
+    code: `
+      const styles = StyleSheet.create(() => {
+        return {
+          name: {}
+        };
+      });
+      const Hello = React.createClass({
+        render: function() {
+          return <Text style={styles.name}>Hello {this.props.name}</Text>;
+        }
+      });
+    `,
+  }, {
+    code: `
+      const styles = StyleSheet.create(function() {
+        return {
+          name: {}
+        };
+      });
+      const Hello = React.createClass({
+        render: function() {
+          return <Text style={styles.name}>Hello {this.props.name}</Text>;
+        }
+      });
+    `,
   }],
 
   invalid: [{
@@ -222,6 +259,55 @@ const tests = {
       const styles = StyleSheet.create({
         text: {}
       })
+      const Hello = React.createClass({
+        render: function() {
+          return <Text style={styles.b}>Hello {this.props.name}</Text>;
+        }
+      });
+    `,
+    errors: [{
+      message: 'Unused style detected: styles.text',
+    }],
+  }, {
+    code: `
+      const styles = StyleSheet.create(() => ({
+        text: {},
+        b: {},
+      }));
+      const Hello = React.createClass({
+        render: function() {
+          return <Text style={styles.b}>Hello {this.props.name}</Text>;
+        }
+      });
+    `,
+    errors: [{
+      message: 'Unused style detected: styles.text',
+    }],
+  }, {
+    code: `
+      const styles = StyleSheet.create(() => {
+        return {
+          text: {},
+          b: {},
+        };
+      });
+      const Hello = React.createClass({
+        render: function() {
+          return <Text style={styles.b}>Hello {this.props.name}</Text>;
+        }
+      });
+    `,
+    errors: [{
+      message: 'Unused style detected: styles.text',
+    }],
+  }, {
+    code: `
+      const styles = StyleSheet.create(function() {
+        return {
+          text: {},
+          b: {},
+        };
+      });
       const Hello = React.createClass({
         render: function() {
           return <Text style={styles.b}>Hello {this.props.name}</Text>;
