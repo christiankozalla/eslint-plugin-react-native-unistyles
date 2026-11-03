@@ -2,13 +2,7 @@
 
 This is a fork of [ESLint plugin for React Native](https://github.com/Intellicode/eslint-plugin-react-native) created to support the usage of Unistyles v3 StyleSheets.
 
-# Project update
-
-Dear users, first of all, thanks for using the plugin! At the moment development activity is low, I've personally not worked with React Native for many years and have little time to continue updating the plugin. I'll do my best to update the plugin to ensure compatibility with new eslint versions, but unfortunately I do not have time to asses new features/pull requests. Thanks for your understanding!
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/Intellicode/eslint-plugin-react-native.svg)](https://greenkeeper.io/)
-
-[![Maintenance Status][status-image]][status-url] [![NPM version][npm-image]][npm-url] [![Coverage Status][coverage-image]][coverage-url]
+[![Maintenance Status][status-image]][status-url] [![NPM version][npm-image]][npm-url]
 
 React Native specific linting rules for ESLint. This repository is structured like (and contains code from) the excellent [eslint-plugin-react](http://github.com/yannickcr/eslint-plugin-react).
 
@@ -97,11 +91,9 @@ Finally, enable all of the rules that you would like to use.
 - [no-raw-text](docs/rules/no-raw-text.md): Detect raw text outside of `Text` component
 - [no-single-element-style-arrays](docs/rules/no-single-element-style-arrays.md): No style arrays that have 1 element only `<View style={[{height: 10}]}/>`
 
-[npm-url]: https://npmjs.org/package/eslint-plugin-react-native
+[npm-url]: https://www.npmjs.com/package/@christiankozalla/eslint-plugin-react-native-unistyles
 [npm-image]: http://img.shields.io/npm/v/eslint-plugin-react-native.svg?style=flat-square
-[coverage-url]: https://coveralls.io/r/Intellicode/eslint-plugin-react-native?branch=master
-[coverage-image]: http://img.shields.io/coveralls/Intellicode/eslint-plugin-react-native/master.svg?style=flat-square
-[status-url]: https://github.com/Intellicode/eslint-plugin-react-native/pulse
+[status-url]: https://github.com/christiankozalla/eslint-plugin-react-native-unistyles/pulse
 [status-image]: http://img.shields.io/badge/status-maintained-brightgreen.svg?style=flat-square
 
 # Shareable configurations

@@ -1,6 +1,6 @@
 {
   "name": "@christiankozalla/eslint-plugin-react-native-unistyles",
-  "version": "5.1.0",
+  "version": "5.1.1",
   "author": "Tom Hastjarjanto <tom@intellicode.nl>",
   "description": "React Native specific linting rules for ESLint",
   "main": "index.js",

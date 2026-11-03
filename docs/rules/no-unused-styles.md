@@ -115,6 +115,46 @@ const Welcome = React.createClass({
 ```
 Usage is tracked over multiple components in the same file.
 
+Unistyles 3.8's Metro integration returns a scoped stylesheet from `useVariants`.
+References through that returned variable also mark styles as used, including
+references inside callbacks:
+
+```jsx
+import { Pressable, Text } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
+
+const styles = StyleSheet.create({
+  button: {
+    borderRadius: 8,
+    variants: {
+      size: {
+        small: { paddingHorizontal: 12, paddingVertical: 8 },
+        large: { paddingHorizontal: 20, paddingVertical: 12 },
+      },
+    },
+  },
+  pressed: { opacity: 0.7 },
+  unused: { marginTop: 8 },
+});
+
+function Button({ size = 'small', onPress, children }) {
+  const selected = styles.useVariants({ size });
+  return (
+    <Pressable
+      onPress={onPress}
+      style={({ pressed }) => [selected.button, pressed && selected.pressed]}
+    >
+      <Text>{children}</Text>
+    </Pressable>
+  );
+}
+```
+
+The `size` prop selects the button's padding. Both `button` and `pressed` are
+used through `selected`, so only `styles.unused` is reported.
+Aliases are resolved in their lexical scope,
+so separate components can use the same alias name for different stylesheets.
+
 ```js
 const styles = StyleSheet.create({
   text: {}
